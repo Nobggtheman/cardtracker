@@ -1,0 +1,19 @@
+{
+  "name": "cardtracker-server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "db:init": "node scripts/init-db.js",
+    "vapid": "node scripts/generate-vapid.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^5.1.0",
+    "multer": "^2.0.2",
+    "pg": "^8.13.1",
+    "web-push": "^3.6.7"
+  }
+}
