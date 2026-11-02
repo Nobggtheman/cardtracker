@@ -19,7 +19,7 @@ When a card rises I often ask myself, do I have a card of them that I could sell
 | Tool you've tried or found | What it does well?                                          | Where it falls short?                                                                 |
 | -------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------- |
 | Ebay card scanner          | When accurate is good for determining what a card is worth. | Card photo scans can be inconsistent and wont save my card unless I list it for sale. |
-| CollX app                  | Great at identifying and keeping track of inventory         | Forced to sell on the Collx app when I want to sell.                                  |
+| CollX app                  | Great at identifying and keeping track of inventory         | Forced to sell on the Collx app when I want to sell. Lacks price checking notifications. |
 
 4. Features and Benefits and MVP
 
@@ -31,6 +31,7 @@ When a card rises I often ask myself, do I have a card of them that I could sell
 
 For later:
 - Tracking for cards beyond sports and into all TCG
+- Photo identification
 - 
 
 5. Tech Stack
@@ -38,8 +39,8 @@ For later:
 | Layer             | Choice            | Why                            |
 | ----------------- | ----------------- | ------------------------------ |
 | Front end         | React web app     |                                |
-| Back end          | Node.js + Express |                                |
-| Database          | PostgreSQL        | For keeping track of inventory |
-| Price data source | The Card API      | For tracking prices            |
-| Hosting           | HTTPS             |                                |
-| Notifications     | Browser push      |                                |
+| Back end          | Node.js + Express | Javascript                     |
+| Database          | PostgreSQL        |  |
+| Price data source | The Card API      | A place to get actual data for tracking prices |
+| Hosting           | HTTPS             | Needs to be constantly running to track prices |
+| Notifications     | Browser push      | Easiest notification way without having to register users |
