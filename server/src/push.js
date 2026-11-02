@@ -1,9 +1,14 @@
+// Server side of push notifications: sends a message to every browser that
+// has subscribed (see client/src/push.js).
 import webpush from 'web-push';
 import { query } from './db.js';
 
+// Push only works once the VAPID keys are in server/.env (generate them with `npm run vapid`).
 export const pushEnabled = Boolean(process.env.VAPID_PUBLIC_KEY && process.env.VAPID_PRIVATE_KEY);
 
 if (pushEnabled) {
+  // The keys prove to browser push services that messages really come from this server.
+  // The subject is a contact address the push services can use if something goes wrong.
   webpush.setVapidDetails(
     process.env.VAPID_SUBJECT || 'mailto:admin@example.com',
     process.env.VAPID_PUBLIC_KEY,
@@ -11,6 +16,8 @@ if (pushEnabled) {
   );
 }
 
+// Sends `payload` ({ title, body, url }) to every saved subscription in parallel.
+// Returns how many were delivered.
 export async function notifyAll(payload) {
   if (!pushEnabled) return 0;
   const { rows } = await query('SELECT id, endpoint, keys FROM push_subscriptions');

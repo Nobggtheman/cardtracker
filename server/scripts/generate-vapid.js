@@ -1,3 +1,5 @@
+// One-off script (npm run vapid): generates the VAPID key pair that identifies
+// this server to browser push services. Paste the output into server/.env.
 import webpush from 'web-push';
 
 const { publicKey, privateKey } = webpush.generateVAPIDKeys();

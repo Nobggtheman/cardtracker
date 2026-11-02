@@ -1,17 +1,27 @@
+// Thin wrapper around fetch() for talking to the CardTracker server.
+
+// Sends a request and returns the parsed JSON body. Throws an Error carrying
+// the server's error message (or the status code) when the response isn't 2xx.
 async function request(url, options = {}) {
   const res = await fetch(url, options);
+  // 204 No Content has no body to parse.
   if (res.status === 204) return null;
+  // Tolerate empty or non-JSON bodies instead of failing on the parse.
   const body = await res.json().catch(() => ({}));
   if (!res.ok) throw new Error(body.error || `Request failed (${res.status})`);
   return body;
 }
 
+// Builds fetch options for a JSON request. The body is left out when not given.
 const json = (method, body) => ({
   method,
   headers: { 'Content-Type': 'application/json' },
   body: body === undefined ? undefined : JSON.stringify(body),
 });
 
+// One function per server endpoint. Creating and updating a card send FormData
+// (not JSON) because they can include a photo; the browser sets the multipart
+// Content-Type header itself.
 export const api = {
   listCards: (params) => request(`/api/cards?${new URLSearchParams(params)}`),
   stats: () => request('/api/cards/stats'),
