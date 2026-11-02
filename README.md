@@ -30,6 +30,8 @@ When a card rises I often ask myself, do I have a card of them that I could sell
 | Price tracker notification where an alert gets sent when a card rises   | Can take advantage of a price jump.                  | Yes     |
 
 For later:
+- Tracking for cards beyond sports and into all TCG
+- 
 
 5. Tech Stack
 
