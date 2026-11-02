@@ -32,7 +32,6 @@ When a card rises I often ask myself, do I have a card of them that I could sell
 For later:
 - Tracking for cards beyond sports and into all TCG
 - Photo identification
-- 
 
 5. Tech Stack
 
