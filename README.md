@@ -43,3 +43,5 @@ For later:
 | Price data source | The Card API      | A place to get actual data for tracking prices |
 | Hosting           | HTTPS             | Needs to be constantly running to track prices |
 | Notifications     | Browser push      | Easiest notification way without having to register users |
+
+6. Architecture Diagram is arc.jpg
